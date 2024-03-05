@@ -251,3 +251,31 @@
     font-size: 14px;
     padding-left: 20px;
   }
+
+  .subtitle{
+    margin-left: 333px;
+    margin-top: 25px;
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: Helvetica;
+  }
+
+  .subtitle2{
+    margin-left: 333px;
+    margin-top: 90px;
+    font-size: larger;
+    font-weight: bold;
+    font-family: Helvetica;
+  }
+
+  .categories{
+    display: grid;
+    margin-left: 333px;
+    grid-template-columns: 205px 205px 205px 205px 205px 205px;
+  }
+
+  .subtitle3{
+    color: gray;
+    margin-left: 333px;
+    font-family: Helvetica;
+  }
