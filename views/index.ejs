@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grailed: Fashion Marketplace</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="stylesheets/index.css">
+    <script src="https://kit.fontawesome.com/18647b6bfa.js" crossorigin="anonymous"></script>
+    <script src="javascripts/functions.js"></script>
+
+</head>
+<body>
+    <center>
+        <nav class="navbar navbar-expand-sm navbar-dark">
+            <a href="home.html">
+                <img src="images/logo.jpg" alt="" class = "logo">
+            </a>
+            <div class = "search-box">
+                <i class="fa-solid fa-magnifying-glass" style="padding-left: 12px;"></i>
+                <input class = "search-text" type="text" name="search-text" id="search-text" placeholder="Search">
+                    <a class="search-btn" href="Search.html" style="text-decoration: none;">
+                        SEARCH
+                    </a>
+            </div>
+            <div class = "collapse navbar-collapse justify-content-end" id = "navbarNav">
+                <ul class ="navbar-nav">
+                <li class = "nav-item active">
+                    <a href="" class = "nav-link">
+                        <ins class = "sell">SELL</ins>
+                    </a>
+                </li>
+                <li class = "nav-item active">
+                    <a href="Search.html" class = "nav-link regular-nav-link">
+                    SHOP
+                    </a>
+                </li>
+                <li class = "nav-item active regular-nav-link">
+                    <a href="read.html" class = "nav-link">
+                    READ
+                    </a>
+                </li>
+                <li class = "nav-item active">
+                  <button type="button" class="btn btn-light btn-outline-dark login" data-bs-toggle="modal" data-bs-target="#ModalForm">
+                    LOGIN
+                  </button>
+                </li>
+                <li class = "nav-item active">
+                  <button type="button" class="btn btn-dark signup" data-bs-toggle="modal" data-bs-target="#SignUpModal">
+                    SIGN UP
+                </button>                
+                </li>
+
+                </ul>
+            </div>
+        </nav>
+    </center>
+    <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              <div class="myform bg-light">
+                  <h1 class="text-left">Log in</h1>
+                  <form id="loginForm" class="login-form" action="/login" method="post">
+                    <div class="mb-3 mt-4">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-dark mt-3">LOGIN</button>
+                    <p class="signup-link">Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+                </form>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="modal fade" id="SignUpModal" tabindex="-1" aria-labelledby="SignUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="myform bg-light">
+                    <h1 class="text-left">Sign Up</h1>
+                    <form>
+                        <div class="mb-3 mt-4">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <button type="submit" class="btn btn-dark mt-3">SIGN UP</button>
+                        <p class="login-link">Already have an account? <a href="#" class="login-link">Log in</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="menu-bar">
+        <div class = "wrapper text-center">
+            <div class="btn-group">
+                <div class="dropdown"> 
+                    <a class="btn menu-link btn-lg" 
+                        href="#"
+                        role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"
+                        data-toggle="dropdown"
+                        > 
+                        DESIGNERS
+                    </a>
+                    <ul class="dropdown-menu" style="width: 1200px; padding-top: 0px;" 
+                        aria-labelledby="dropdownMenuLink">
+                        <div class="container">
+                            <div class = "row">
+                                <div class = "col-3" style="padding-top: 10px;">
+                                <li><a class="dropdown-item menulink" href=""> 
+                                    DESIGNERS A-Z</a> 
+                                </li> 
+                                </div>
+                                <div class = "col-3" style="padding-top: 10px;">
+                                    <ul>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Acne Studios
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Adidas
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Alexandar McQueen
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Amiri
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Balenciaga
+                                            </a> 
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Bape
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Bottega Veneta
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Celine
+                                            </a> 
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Chanel
+                                            </a> 
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Chrome Hearts
+                                            </a> 
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Comme des Garcons
+                                            </a> 
+                                        </li> 
+                                    </ul>
+                                </div>
+                                <div class = "col-3" style="padding-top: 10px;">
+                                    <ul>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Dior
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Dries Van Noten
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Fear of God
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Gucci
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Jacquemus
+                                            </a> 
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Kapital
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Loewe
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Louis Vuitton
+                                            </a> 
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Maison Margiela
+                                            </a> 
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Nike
+                                            </a> 
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Number (N)ine
+                                            </a> 
+                                        </li> 
+                                    </ul>
+                                </div>
+                                <div class = "col-3" style="padding-top: 10px;">
+                                    <ul>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Off-White
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Prada
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Raf Simons
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Rick Owens
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Saint Laurent Paris
+                                            </a> 
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Stone Island
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Supreme
+                                            </a> 
+                                        </li> 
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Undercover
+                                            </a> 
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item menulink" href=""> 
+                                            Vintage
+                                            </a> 
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </ul> 
+
+                </div>
+                <div class="dropdown"> 
+                    <a class="btn dropdown-toggle menu-link btn-lg" 
+                            href="#"
+                            role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false"> 
+                        MENSWEAR
+                    </a> 
+                    <ul class="dropdown-menu dropdown-menu-center" 
+                        aria-labelledby="dropdownMenuLink"> 
+                        <li><a class="dropdown-item" href="#"> 
+                            ALL CATEGORIES
+                            </a> 
+                        </li> 
+                        <li><a class="dropdown-item" href="#"> 
+                            TOPS
+                            </a> 
+                        </li>
+                        <li><a class="dropdown-item" href="#"> 
+                            BOTTOMS
+                            </a> 
+                        </li>
+                        <li><a class="dropdown-item" href="#"> 
+                            OUTERWEAR
+                            </a> 
+                        </li> 
+                        <li><a class="dropdown-item" href="#"> 
+                            FOOTWEAR
+                            </a> 
+                        </li>
+                        <li><a class="dropdown-item" href="#"> 
+                            TAILORING
+                            </a> 
+                        </li> 
+                        <li><a class="dropdown-item" href="#"> 
+                            ACCESSORIES
+                            </a> 
+                        </li>    
+                    </ul> 
+                </div>
+                <div class="dropdown"> 
+                    <a class="btn dropdown-toggle menu-link btn-lg" 
+                        href="#"
+                        role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"> 
+                        WOMENSWEAR
+                    </a>  
+                    <ul class="dropdown-menu dropdown-menu-center" 
+                        aria-labelledby="dropdownMenuLink"> 
+                        <li><a class="dropdown-item" href="#"> 
+                            ALL CATEGORIES
+                            </a> 
+                        </li> 
+                        <li><a class="dropdown-item" href="#"> 
+                            TOPS
+                            </a> 
+                        </li> 
+                        <li><a class="dropdown-item" href="#"> 
+                            BOTTOMS
+                            </a> 
+                        </li>
+                        <li><a class="dropdown-item" href="#"> 
+                            OUTERWEAR
+                            </a> 
+                        </li> 
+                        <li><a class="dropdown-item" href="#"> 
+                            FOOTWEAR
+                            </a> 
+                        </li>
+                        <li><a class="dropdown-item" href="#"> 
+                            TAILORING
+                            </a> 
+                        </li> 
+                        <li><a class="dropdown-item" href="#"> 
+                            ACCESSORIES
+                            </a> 
+                        </li>    
+                    </ul> 
+                </div>
+                <div class="dropdown"> 
+                    <a class="btn menu-link btn-lg" 
+                        href="#"
+                        role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"> 
+                        SNEAKERS
+                    </a> 
+                </div>
+                <div class="dropdown"> 
+                    <a class="btn menu-link btn-lg" 
+                        href="#"
+                        role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"> 
+                        STAFF PICKS
+                    </a> 
+                </div>
+                <div class="dropdown"> 
+                    <a class="btn menu-link btn-lg" 
+                        href="#"
+                        role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"> 
+                        COLLECTIONS
+                    </a> 
+                </div>  
+            </div>
+        </div>
+    </div>
+
+    <div class="image-container">
+      <img src="images/homepage.gif" alt="Homepage GIF">
+      <div class="overlay-text">
+          <h1>The platform for personal style</h1>
+          <p>Buy, sell, discover authenticated pieces<br>from the world's top brands.</p>
+          <a href="menswear.html" class="mainlinks">SHOP MENSWEAR</a>
+          <a href="womenswear.html" class ="mainlinks">SHOP WOMENSWEAR</a>
+      </div>
+  </div>
+  
+
+    <center>
+    <p class="subtitle2">Shop by Style</p>
+    <div class="categories">
+        <a href="menswear.html">
+            <img src="images/Avant-Garde.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="images/Gorpcore.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="images/Luxury.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="images/Streetwear.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="images/Vintage.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="images/Y2K.png" alt="" />
+        </a>
+    </div>
+
+    <p class="subtitle2">Shop Menswear</p>
+    <div class="categories">
+        <a href="menswear.html">
+            <img src="images/Tops1.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="images/Bottoms1.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="images/Outerwear1.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="images/Footwear1.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="images/Tailoring.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="images/Accessories1.png" alt="" />
+        </a>
+    </div>
+
+    <p class="subtitle2">Shop Womenswear</p>
+    <div class="categories">
+        <a href="womenswear.html">
+            <img src="images/Tops2.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="images/Bottoms2.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="images/Outerwear2.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="images/Footwear2.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="images/Bags.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="images/Accessories2.png" alt="" />
+        </a>
+    </div>
+
+    <p class="subtitle2">Popular Designers</p>
+    <div class="categories">
+        <a href="Search.html">
+            <img src="images/RickOwens.jpeg" alt="" />
+        </a>
+        <a href="Search.html">
+            <img src="images/Nike.jpeg" alt="" />
+        </a>
+        <a href="Search.html">
+            <img src="images/Kapital.jpeg" alt="" />
+        </a>
+        <a href="Search.html">
+            <img src="images/Carhartt.jpeg" alt="" />
+        </a>
+        <a href="Search.html">
+            <img src="images/MaisonMargiela.jpeg" alt="" />
+        </a>
+        <a href="Search.html">
+            <img src="images/LouisVuitton.jpeg" alt="" />
+        </a>
+    </div>
+  </center>
+
+    <div style="height: 100px;"></div>
+    <a href="Search.html">
+        <img src="images/Bottom.png" alt="" />
+    </a>
+    
+    <footer>
+        <div class = "footerContainer">
+            <div class = "container">
+                <div class = "row justify-content-center">
+                    <div class = "col-md-2 ht50">
+                        <p class = "website-name">Grailed</p>
+                    </div>
+                    <div class = "col-md-10 ht50" style="max-width: 800px; padding-top: 10px;">              
+                        <ul class = "list-unstyled links">
+                            <a href="help.html" class = "links">CONTACT US</a>
+                            <a href="about.html" class = "links">ABOUT</a>
+                        </ul>
+                        <div class="socialIcons">
+                            <a href="https://twitter.com/grailed"><i class = "fa-brands fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/grailed"><i class = "fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/grailed"><i class = "fa-brands fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/channel/UCrcycxtz_yoAfar-qGPMJkA"><i class = "fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "footerBottom">
+            <p class = "copywright">© 2024  Grailed</p>
+        </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
