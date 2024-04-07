@@ -36,14 +36,14 @@
     align-items: center;
   }
   
-  nav .navbar-nav li a{
-    color: black !important;
-  }
+  .nav
 
   .nav-item{
     padding: 2px;
   }
   
+  
+
   .search-box{
     background-color: white;
     display: inline-block;
@@ -71,6 +71,7 @@
     font-size: 12px;
     font-weight: bold;
   }
+
 
   .sell{
     border: 1px solid;
@@ -173,6 +174,10 @@
     text-align: center;
   }
   
+  .dropdown a:hover{
+    color: blue;
+    background-color: white;
+  }
   
   .socialIcons{
     display: flex;
@@ -216,6 +221,13 @@
     color: white;
     text-decoration: dotted;
     padding-left: 5px;
+  }
+
+  .dropdown-menu-center {
+    left: 50% !important;
+    right: auto !important;
+    text-align: center !important;
+    transform: translate(-50%, 0) !important;
   }
   
   ul.no-bullets {
