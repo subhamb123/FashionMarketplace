@@ -7,8 +7,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-  console.log(req.body.email+"-"+req.body.password);
+  console.log(req.body.loginemail+"-"+req.body.loginpassword);
   res.redirect("/home")
 });
+
+router.post('/signup', function(req, res, next) {
+  console.log(req.body.loginemail+"-"+req.body.loginpassword);
+  res.redirect("/home")
+});
+
 
 module.exports = router;

@@ -53,11 +53,11 @@
                   <form id="loginForm" class="login-form" action="/login" method="post">
                     <div class="mb-3 mt-4">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="loginemail" name="loginemail" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                        <input type="password" class="form-control" id="loginpassword" name="loginpassword">
                     </div>
                     <button type="submit" class="btn btn-dark mt-3">LOGIN</button>
                     <p class="signup-link">Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
@@ -74,7 +74,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="myform bg-light">
                     <h1 class="text-left">Sign Up</h1>
-                    <form>
+                    <form id="loginForm" class="signup-form" action="/login" method="post">
                         <div class="mb-3 mt-4">
                             <label for="firstName" class="form-label">First Name</label>
                             <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp">
@@ -85,11 +85,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" id="signupemail" aria-describedby="emailHelp" name="signupemail">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password">
+                            <input type="password" class="form-control" id="signuppassword" name="signuppassword">
                         </div>
                         <button type="submit" class="btn btn-dark mt-3">SIGN UP</button>
                         <p class="login-link">Already have an account? <a href="#" class="login-link">Log in</a></p>
