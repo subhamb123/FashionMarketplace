@@ -13,16 +13,23 @@
     <link rel="icon" href="/images/icon.png" type="image/png">
     <link rel="stylesheet" href="stylesheets/index.css">
     <script src="https://kit.fontawesome.com/18647b6bfa.js" crossorigin="anonymous"></script>
-    <script src="javascripts/functions.js"></script>
+    <script src="/javascripts/functions.js"></script>
     
 
 </head>
 <body>
-      <!-- Include the header -->
-      <% include header.ejs %>
+    <!-- Include the header -->
+    <% if (loggedIn) { %>
+        <% include header_loggedin.ejs %>
+    <% } else { %>
+        <% include header.ejs %>
+    <% } %>
+
+    <!-- Include the menubar -->
+    <% include menubar.ejs %>
 
     <div class="image-container">
-      <img src="images/homepage.gif" alt="Homepage GIF">
+      <img src="/images/homepage.gif" alt="Homepage GIF">
       <div class="overlay-text">
           <h1>The platform for personal style</h1>
           <p>Buy, sell, discover authenticated pieces<br>from the world's top brands.</p>
@@ -36,88 +43,88 @@
     <p class="subtitle2">Shop by Style</p>
     <div class="categories">
         <a href="menswear.html">
-            <img src="images/Avant-Garde.png" alt="" />
+            <img src="/images/Avant-Garde.png" alt="" />
         </a>
         <a href="womenswear.html">
-            <img src="images/Gorpcore.png" alt="" />
+            <img src="/images/Gorpcore.png" alt="" />
         </a>
         <a href="menswear.html">
-            <img src="images/Luxury.png" alt="" />
+            <img src="/images/Luxury.png" alt="" />
         </a>
         <a href="womenswear.html">
-            <img src="images/Streetwear.png" alt="" />
+            <img src="/images/Streetwear.png" alt="" />
         </a>
         <a href="menswear.html">
-            <img src="images/Vintage.png" alt="" />
+            <img src="/images/Vintage.png" alt="" />
         </a>
         <a href="womenswear.html">
-            <img src="images/Y2K.png" alt="" />
+            <img src="/images/Y2K.png" alt="" />
         </a>
     </div>
 
     <p class="subtitle2">Shop Menswear</p>
     <div class="categories">
         <a href="menswear.html">
-            <img src="images/Tops1.png" alt="" />
+            <img src="/images/Tops1.png" alt="" />
         </a>
         <a href="menswear.html">
-            <img src="images/Bottoms1.png" alt="" />
+            <img src="/images/Bottoms1.png" alt="" />
         </a>
         <a href="menswear.html">
-            <img src="images/Outerwear1.png" alt="" />
+            <img src="/images/Outerwear1.png" alt="" />
         </a>
         <a href="menswear.html">
-            <img src="images/Footwear1.png" alt="" />
+            <img src="/images/Footwear1.png" alt="" />
         </a>
         <a href="menswear.html">
-            <img src="images/Tailoring.png" alt="" />
+            <img src="/images/Tailoring.png" alt="" />
         </a>
         <a href="menswear.html">
-            <img src="images/Accessories1.png" alt="" />
+            <img src="/images/Accessories1.png" alt="" />
         </a>
     </div>
 
     <p class="subtitle2">Shop Womenswear</p>
     <div class="categories">
         <a href="womenswear.html">
-            <img src="images/Tops2.png" alt="" />
+            <img src="/images/Tops2.png" alt="" />
         </a>
         <a href="womenswear.html">
-            <img src="images/Bottoms2.png" alt="" />
+            <img src="/images/Bottoms2.png" alt="" />
         </a>
         <a href="womenswear.html">
-            <img src="images/Outerwear2.png" alt="" />
+            <img src="/images/Outerwear2.png" alt="" />
         </a>
         <a href="womenswear.html">
-            <img src="images/Footwear2.png" alt="" />
+            <img src="/images/Footwear2.png" alt="" />
         </a>
         <a href="womenswear.html">
-            <img src="images/Bags.png" alt="" />
+            <img src="/images/Bags.png" alt="" />
         </a>
         <a href="womenswear.html">
-            <img src="images/Accessories2.png" alt="" />
+            <img src="/images/Accessories2.png" alt="" />
         </a>
     </div>
 
     <p class="subtitle2">Popular Designers</p>
     <div class="categories">
         <a href="Search.html">
-            <img src="images/RickOwens.jpeg" alt="" />
+            <img src="/images/RickOwens.jpeg" alt="" />
         </a>
         <a href="Search.html">
-            <img src="images/Nike.jpeg" alt="" />
+            <img src="/images/Nike.jpeg" alt="" />
         </a>
         <a href="Search.html">
-            <img src="images/Kapital.jpeg" alt="" />
+            <img src="/images/Kapital.jpeg" alt="" />
         </a>
         <a href="Search.html">
-            <img src="images/Carhartt.jpeg" alt="" />
+            <img src="/images/Carhartt.jpeg" alt="" />
         </a>
         <a href="Search.html">
-            <img src="images/MaisonMargiela.jpeg" alt="" />
+            <img src="/images/MaisonMargiela.jpeg" alt="" />
         </a>
         <a href="Search.html">
-            <img src="images/LouisVuitton.jpeg" alt="" />
+            <img src="/images/LouisVuitton.jpeg" alt="" />
         </a>
     </div>
   </center>

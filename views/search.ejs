@@ -12,12 +12,19 @@
     />
     <link rel="stylesheet" href="stylesheets/index.css">
     <script src="https://kit.fontawesome.com/18647b6bfa.js" crossorigin="anonymous"></script>
+    <script src="javascripts/functions.js"></script>
 
 </head>
 <body>
     <!-- Include the header -->
-    <% include header.ejs %>
-    
+    <% if (loggedIn) { %>
+        <% include header_loggedin.ejs %>
+    <% } else { %>
+        <% include header.ejs %>
+    <% } %>
+
+    <!-- Include the menubar -->
+    <% include menubar.ejs %>
     <div style="height: 100px;"></div>
     <p class="subtitle3">Experimental Design</p>
     <img class="subtitle3" src="images/StaffPicks.png" alt="" />

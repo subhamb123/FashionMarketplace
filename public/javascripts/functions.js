@@ -16,3 +16,38 @@ document.addEventListener("DOMContentLoaded", function() {
         signUpModal.show(); // Open the sign-up modal
     });
 });
+
+
+function updateLoginFormAction() {
+    var loginForm = document.getElementById("loginForm");
+    var currentPath = window.location.pathname;
+    var loginAction = currentPath === "/" ? "/login" : currentPath + "/login";
+    loginForm.action = loginAction;
+}
+
+document.addEventListener("DOMContentLoaded", updateLoginFormAction);
+
+function updateSignupFormAction() {
+    var signupForm = document.getElementById("signupForm");
+    var currentPath = window.location.pathname;
+    var signupAction = currentPath === "/" ? "/signup" : currentPath + "/signup";
+    signupForm.action = signupAction;
+}
+
+document.addEventListener("DOMContentLoaded", updateSignupFormAction);
+
+
+function updateLogoutLinkHref() {
+    var logoutLink = document.getElementById("logoutLink").querySelector("a");
+    var currentPath = window.location.pathname;
+    var logoutHref = currentPath === "/" ? "/logout" : currentPath + "/logout";
+    logoutLink.href = logoutHref;
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    updateLogoutLinkHref();
+});
+
+document.getElementById("logoutLink").addEventListener("click", function(event) {
+    updateLogoutLinkHref();
+});
