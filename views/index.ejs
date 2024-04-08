@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grailed: Fashion Marketplace</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="/images/icon.png" type="image/png">
+    <link rel="stylesheet" href="stylesheets/index.css">
+    <script src="https://kit.fontawesome.com/18647b6bfa.js" crossorigin="anonymous"></script>
+    <script src="/javascripts/functions.js"></script>
+    
+
+</head>
+<body>
+    <!-- Include the header -->
+    <% if (loggedIn) { %>
+        <% include header_loggedin.ejs %>
+    <% } else { %>
+        <% include header.ejs %>
+    <% } %>
+
+    <!-- Include the menubar -->
+    <% include menubar.ejs %>
+
+    <div class="image-container">
+      <img src="/images/homepage.gif" alt="Homepage GIF">
+      <div class="overlay-text">
+          <h1>The platform for personal style</h1>
+          <p>Buy, sell, discover authenticated pieces<br>from the world's top brands.</p>
+          <a href="menswear.html" class="mainlinks">SHOP MENSWEAR</a>
+          <a href="womenswear.html" class ="mainlinks">SHOP WOMENSWEAR</a>
+      </div>
+  </div>
+  
+
+    <center>
+    <p class="subtitle2">Shop by Style</p>
+    <div class="categories">
+        <a href="menswear.html">
+            <img src="/images/Avant-Garde.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="/images/Gorpcore.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="/images/Luxury.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="/images/Streetwear.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="/images/Vintage.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="/images/Y2K.png" alt="" />
+        </a>
+    </div>
+
+    <p class="subtitle2">Shop Menswear</p>
+    <div class="categories">
+        <a href="menswear.html">
+            <img src="/images/Tops1.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="/images/Bottoms1.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="/images/Outerwear1.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="/images/Footwear1.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="/images/Tailoring.png" alt="" />
+        </a>
+        <a href="menswear.html">
+            <img src="/images/Accessories1.png" alt="" />
+        </a>
+    </div>
+
+    <p class="subtitle2">Shop Womenswear</p>
+    <div class="categories">
+        <a href="womenswear.html">
+            <img src="/images/Tops2.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="/images/Bottoms2.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="/images/Outerwear2.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="/images/Footwear2.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="/images/Bags.png" alt="" />
+        </a>
+        <a href="womenswear.html">
+            <img src="/images/Accessories2.png" alt="" />
+        </a>
+    </div>
+
+    <p class="subtitle2">Popular Designers</p>
+    <div class="categories">
+        <a href="Search.html">
+            <img src="/images/RickOwens.jpeg" alt="" />
+        </a>
+        <a href="Search.html">
+            <img src="/images/Nike.jpeg" alt="" />
+        </a>
+        <a href="Search.html">
+            <img src="/images/Kapital.jpeg" alt="" />
+        </a>
+        <a href="Search.html">
+            <img src="/images/Carhartt.jpeg" alt="" />
+        </a>
+        <a href="Search.html">
+            <img src="/images/MaisonMargiela.jpeg" alt="" />
+        </a>
+        <a href="Search.html">
+            <img src="/images/LouisVuitton.jpeg" alt="" />
+        </a>
+    </div>
+  </center>
+
+    <div style="height: 100px;"></div>
+    <a href="Search.html">
+        <img src="images/Bottom.png" alt="" />
+    </a>
+    
+    <footer>
+        <div class = "footerContainer">
+            <div class = "container">
+                <div class = "row justify-content-center">
+                    <div class = "col-md-2 ht50">
+                        <p class = "website-name">Grailed</p>
+                    </div>
+                    <div class = "col-md-10 ht50" style="max-width: 800px; padding-top: 10px;">              
+                        <ul class = "list-unstyled links">
+                            <a href="help.html" class = "links">CONTACT US</a>
+                            <a href="about.html" class = "links">ABOUT</a>
+                        </ul>
+                        <div class="socialIcons">
+                            <a href="https://twitter.com/grailed"><i class = "fa-brands fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/grailed"><i class = "fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/grailed"><i class = "fa-brands fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/channel/UCrcycxtz_yoAfar-qGPMJkA"><i class = "fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "footerBottom">
+            <p class = "copywright">© 2024  Grailed</p>
+        </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
