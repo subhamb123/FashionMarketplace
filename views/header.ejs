@@ -1,7 +1,7 @@
 <header>
     <center>
         <nav class="navbar navbar-expand-sm navbar-dark">
-            <a href="home.html">
+            <a href="/">
                 <img src="images/logo.jpg" alt="" class = "logo">
             </a>
             <div class = "search-box">
@@ -74,14 +74,14 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="myform bg-light">
                     <h1 class="text-left">Sign Up</h1>
-                    <form id="loginForm" class="signup-form" action="/login" method="post">
+                    <form id="loginForm" class="signup-form" action="/home" method="post">
                         <div class="mb-3 mt-4">
                             <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp">
+                            <input type="text" class="form-control" id="signupfirstname" aria-describedby="firsthameHelp" name="signupfirstname">
                         </div>
                         <div class="mb-3">
                             <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName">
+                            <input type="text" class="form-control" id="signuplastname" aria-describedby="lastnameHelp" name="signuplastname">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="signuppassword" name="signuppassword">
+                            <input type="password" class="form-control" id="signuppassword" aria-describedby="passwordHelp" name="signuppassword">
                         </div>
                         <button type="submit" class="btn btn-dark mt-3">SIGN UP</button>
                         <p class="login-link">Already have an account? <a href="#" class="login-link">Log in</a></p>
@@ -304,7 +304,7 @@
                     </a> 
                     <ul class="dropdown-menu dropdown-menu-center" 
                         aria-labelledby="dropdownMenuLink"> 
-                        <li><a class="dropdown-item" href="#"> 
+                        <li><a class="dropdown-item" href="/menswear"> 
                             ALL CATEGORIES
                             </a> 
                         </li> 
@@ -336,7 +336,7 @@
                 </div>
                 <div class="dropdown"> 
                     <a class="btn dropdown-toggle menu-link btn-lg" 
-                        href="#"
+                        href="/womenswear"
                         role="button" id="dropdownMenuLink"
                         data-bs-toggle="dropdown" 
                         aria-expanded="false"> 
@@ -344,7 +344,7 @@
                     </a>  
                     <ul class="dropdown-menu dropdown-menu-center" 
                         aria-labelledby="dropdownMenuLink"> 
-                        <li><a class="dropdown-item" href="#"> 
+                        <li><a class="dropdown-item" href="/womenswear"> 
                             ALL CATEGORIES
                             </a> 
                         </li> 
@@ -376,28 +376,19 @@
                 </div>
                 <div class="dropdown"> 
                     <a class="btn menu-link btn-lg" 
-                        href="#"
-                        role="button" id="dropdownMenuLink"
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false"> 
+                        href="/sneakers"> 
                         SNEAKERS
                     </a> 
                 </div>
                 <div class="dropdown"> 
                     <a class="btn menu-link btn-lg" 
-                        href="#"
-                        role="button" id="dropdownMenuLink"
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false"> 
+                        href="#"> 
                         STAFF PICKS
                     </a> 
                 </div>
                 <div class="dropdown"> 
                     <a class="btn menu-link btn-lg" 
-                        href="#"
-                        role="button" id="dropdownMenuLink"
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false"> 
+                        href="/collections"> 
                         COLLECTIONS
                     </a> 
                 </div>  
