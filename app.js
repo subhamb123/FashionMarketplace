@@ -9,13 +9,12 @@ const User = require('./models/User')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var menswearRouter = require('./routes/menswear');
-var womenswearRouter = require('./routes/womenswear');
-var sneakersRouter = require('./routes/sneakers');
-var collectionsRouter = require('./routes/collections');
 var searchRouter = require('./routes/search');
 var helpRouter = require('./routes/help');
 var aboutRouter = require('./routes/about');
+var sellRouter = require('./routes/sell');
+var readRouter = require('./routes/read');
+var checkoutRouter = require('./routes/checkout');
 var app = express();
 
 // view engine setup
@@ -38,13 +37,12 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/menswear', menswearRouter);
-app.use('/womenswear', womenswearRouter);
-app.use('/sneakers', sneakersRouter);
-app.use('/collections', collectionsRouter);
 app.use('/search', searchRouter);
 app.use('/help', helpRouter);
 app.use('/about', aboutRouter);
+app.use('/sell', sellRouter);
+app.use('/read', readRouter);
+app.use('/checkout', checkoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

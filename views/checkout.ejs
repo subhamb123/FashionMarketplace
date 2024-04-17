@@ -10,10 +10,10 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
     <script src="https://kit.fontawesome.com/18647b6bfa.js" crossorigin="anonymous"></script>
-    <script src="validate.js"></script>
     <script src="/javascripts/functions.js"></script>
+
 </head>
 <body>
     <!-- Include the header -->
@@ -25,32 +25,6 @@
 
     <!-- Include the menubar -->
     <% include menubar.ejs %>
-    <center>
-    <form class="form" method="GET" action="result.html" onsubmit="return validateEmail();">
-        <fieldset>
-          <legend>Submit Request</legend>
-          <div id="liveAlertPlaceholder"></div>
-          <div>
-            <label for="Email">Email</label>
-            <p></p>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="email@email.com"
-            />
-          </div>
-          <div>
-            <label for="Request">Request</label>
-            <p></p>
-            <textarea rows="5" cols="80" id="TITLE"></textarea>
-          </div>
-          <button type="submit">Submit</button>
-        </fieldset>
-      </form>
-      <div style="height: 297px;"></div>
-
-    </center>
     
     <% include footer.ejs %>
 
