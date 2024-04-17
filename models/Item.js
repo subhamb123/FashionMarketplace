@@ -57,10 +57,16 @@ Item.init({
     title: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    directory: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {
     sequelize, 
-    modelName: 'Item'
+    modelName: 'Item',
+    freezeTableName: true,
+    timestamps: false
   });
 
 module.exports = Item

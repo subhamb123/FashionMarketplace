@@ -26,7 +26,7 @@
     <!-- Include the menubar -->
     <% include menubar.ejs %>
     <center>
-    <form class="form" method="GET" action="result.html" onsubmit="return validateEmail();">
+    <form method="POST" action="/create">
         <fieldset>
           <legend>Submit Request</legend>
           <div id="liveAlertPlaceholder"></div>
@@ -43,11 +43,26 @@
           <div>
             <label for="Request">Request</label>
             <p></p>
-            <textarea rows="5" cols="80" id="TITLE"></textarea>
+            <textarea rows="5" cols="80" id="request"></textarea>
           </div>
           <button type="submit">Submit</button>
         </fieldset>
       </form>
+
+      <% if (locals.msg) {%>
+        <% if (msg === "success") { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Sent!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } else { %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Fill out the entire form!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% }%>
+    <% }%>
+
       <div style="height: 297px;"></div>
 
     </center>

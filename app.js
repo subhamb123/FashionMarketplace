@@ -15,6 +15,8 @@ var aboutRouter = require('./routes/about');
 var sellRouter = require('./routes/sell');
 var readRouter = require('./routes/read');
 var checkoutRouter = require('./routes/checkout');
+var profileRouter = require('./routes/profile');
+var settingsRouter = require('./routes/settings');
 var app = express();
 
 // view engine setup
@@ -43,6 +45,8 @@ app.use('/about', aboutRouter);
 app.use('/sell', sellRouter);
 app.use('/read', readRouter);
 app.use('/checkout', checkoutRouter);
+app.use('/profile', profileRouter);
+app.use('/settings', settingsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

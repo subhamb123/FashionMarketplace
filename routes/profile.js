@@ -1,18 +1,10 @@
 var express = require('express');
 const User = require('../models/User');
-const item = require('../models/Item')
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', async function(req, res, next) {
-    const products = await item.findAll();
-
-    if(req.query.msg){
-        res.locals.msg = req.query.msg
-        res.locals.product = req.query.product
-    }
-
-    res.render('search', { loggedIn: req.session.user ? true : false, products });
+router.get('/', function(req, res, next) {
+    res.render('profile', { loggedIn: req.session.user ? true : false });
 });
 
 router.post('/login', async function(req, res, next) {

@@ -13,7 +13,12 @@
     <link rel="stylesheet" href="stylesheets/index.css">
     <script src="https://kit.fontawesome.com/18647b6bfa.js" crossorigin="anonymous"></script>
     <script src="javascripts/functions.js"></script>
-
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+      }
+    </style>
 </head>
 <body>
     <!-- Include the header -->
@@ -25,10 +30,160 @@
 
     <!-- Include the menubar -->
     <% include menubar.ejs %>
-    <div style="height: 100px;"></div>
-    <p class="subtitle3">Experimental Design</p>
-    <img class="subtitle3" src="images/StaffPicks.png" alt="" />
-    <div style="height: 100px;"></div>
+    <div class="grid">
+      <div>
+        <form>
+          <fieldset>
+            <legend>Filters</legend>
+            <div>
+              <label>
+                <input type="checkbox" id="Menswear" name="filter" value="Menswear" />
+                Menswear
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Womenswear" name="filter" value="Womenswear" />
+                Womenswear
+              </label>
+            </div>
+            <p>Designers</p>
+            <div>
+              <label>
+                <input type="checkbox" id="Carhartt" name="filter" value="Carhartt" />
+                Carhartt
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Kapital" name="filter" value="Kapital" />
+                Kapital
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Louis Vuitton" name="filter" value="Louis Vuitton" />
+                Louis Vuitton
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Maison Margiela" name="filter" value="Maison Margiela" />
+                Maison Margiela
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Nike" name="filter" value="Nike" />
+                Nike
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Rick Owens" name="filter" value="Rick Owens" />
+                Rick Owens
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Adidas" name="filter" value="Adidas" />
+                Adidas
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Balenciaga" name="filter" value="Balenciaga" />
+                Balenciaga
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Jordan" name="filter" value="Jordan" />
+                Jordan
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Off-White" name="filter" value="Off-White" />
+                Off-White
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Yeezy" name="filter" value="Yeezy" />
+                Yeezy
+              </label>
+            </div>
+            <p>Categories</p>
+            <div>
+              <label>
+                <input type="checkbox" id="Tops" name="filter" value="Tops" />
+                Tops
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Bottoms" name="filter" value="Bottoms" />
+                Bottoms
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Outerwear" name="filter" value="Outerwear" />
+                Outerwear
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Footwear" name="filter" value="Footwear" />
+                Footwear
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Tailoring" name="filter" value="Tailoring" />
+                Tailoring
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Bags & Luggage" name="filter" value="Bags & Luggage" />
+                Bags & Luggage
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Accessories" name="filter" value="Accessories" />
+                Accessories
+              </label>
+            </div>
+            <p>Special</p>
+            <div>
+              <label>
+                <input type="checkbox" id="Staff Picks" name="filter" value="Staff Picks" />
+                Staff Picks
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" id="Collections" name="filter" value="Collections" />
+                Collections
+              </label>
+            </div>
+            <button type="submit">Apply Filters</button>
+          </fieldset>
+        </form>
+      </div>
+        
+      <div>
+        <% for (product of products) { %>
+          <img src=<%= product.directory %> alt="" />
+        <% } %>
+        <%if (!locals.products || products.length == 0) { %>
+          <p> Try a different filter! </p>
+        <% } %>
+      </div>
+    </div>
     
     <% include footer.ejs %>
 

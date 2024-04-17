@@ -1,5 +1,6 @@
 var express = require('express');
 const User = require('../models/User');
+const Request = require('../models/Request');
 var router = express.Router();
 
 /* GET users listing. */
@@ -48,4 +49,19 @@ router.post('/login', async function(req, res, next) {
       res.redirect('/help/?msg=fail');
     }
   });
+
+  router.post('/create', async function(req, res, next) {
+    if(req.body.email !== "" && req.body.request !== ""){
+        await Request.create(
+            {
+              user_email: req.body.email,
+              suggestions: req.body.request
+            }
+        )
+        res.redirect('/?msg=success')
+    }else{
+      res.redirect("/?msg=fail")
+    }
+  });
+
 module.exports = router;
