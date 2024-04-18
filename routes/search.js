@@ -9,9 +9,9 @@ router.get('/', async function(req, res, next) {
 
     if(req.query.msg){
         res.locals.msg = req.query.msg
-        res.locals.product = req.query.product
     }
 
+    res.locals.product = req.query.product
     res.render('search', { loggedIn: req.session.user ? true : false, products });
 });
 

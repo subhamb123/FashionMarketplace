@@ -5,6 +5,9 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+    if(req.query.msg){
+      res.locals.msg = req.query.msg
+    }
     res.render('help', { loggedIn: req.session.user ? true : false });
 });
 
@@ -51,16 +54,16 @@ router.post('/login', async function(req, res, next) {
   });
 
   router.post('/create', async function(req, res, next) {
-    if(req.body.email !== "" && req.body.request !== ""){
+    if(req.body.email.includes("@") && req.body.email.includes(".") && req.body.email.length >= 5 && req.body.request !== ""){
         await Request.create(
             {
               user_email: req.body.email,
               suggestions: req.body.request
             }
         )
-        res.redirect('/?msg=success')
+        res.redirect('/help/?msg=success')
     }else{
-      res.redirect("/?msg=fail")
+      res.redirect("/help/?msg=fail")
     }
   });
 

@@ -74,6 +74,7 @@
 -- INSERT INTO FAVORITES (user_email, item_id) VALUES ('user@example.com', '025');
 
 CREATE TABLE IF NOT EXISTS SUGGESTIONS (
+    id INTEGER,
     user_email TEXT NOT NULL,
     suggestions TEXT NOT NULL
 );

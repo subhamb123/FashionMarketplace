@@ -26,7 +26,7 @@
     <!-- Include the menubar -->
     <% include menubar.ejs %>
     <center>
-    <form method="POST" action="/create">
+    <form method="POST" action="/help/create">
         <fieldset>
           <legend>Submit Request</legend>
           <div id="liveAlertPlaceholder"></div>
@@ -43,7 +43,7 @@
           <div>
             <label for="Request">Request</label>
             <p></p>
-            <textarea rows="5" cols="80" id="request"></textarea>
+            <textarea rows="5" cols="80" id="request" name="request"></textarea>
           </div>
           <button type="submit">Submit</button>
         </fieldset>
@@ -57,7 +57,7 @@
             </div>
         <% } else { %>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                Fill out the entire form!
+                Form is not complete or email is invalid!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <% }%>
