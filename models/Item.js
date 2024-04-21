@@ -44,6 +44,16 @@ class Item extends Model {
             return null;
         }
     }
+
+    static async getMaxItemId() {
+        try {
+            const result = await Item.max('itemid');
+            return result;
+        } catch (error) {
+            console.error('Error retrieving max itemid:', error);
+            throw error;
+        }
+    }
 }
 
 Item.init({
