@@ -1,10 +1,250 @@
 var express = require('express');
 const User = require('../models/User');
+const Item = require('../models/Item');
+const Staffpick = require('../models/Staffpick')
 var router = express.Router();
 
+function getTimeAgo(timestamp) {
+  // Parse the timestamp string into a Date object
+  const date = new Date(timestamp);
+
+  // Get the current time in milliseconds
+  const currentTime = Date.now();
+
+  // Calculate the time difference
+  const timeDifference = currentTime - date.getTime();
+
+  // Perform the time ago calculation based on the time difference
+  if (timeDifference < 1000) { // Less than a second
+    return "just now";
+  } else if (timeDifference < 60000) { // Less than a minute (60 seconds)
+    const seconds = Math.floor(timeDifference / 1000);
+    return seconds + (seconds === 1 ? " second ago" : " seconds ago");
+  } else if (timeDifference < 3600000) { // Less than an hour (60 minutes)
+    const minutes = Math.floor(timeDifference / 60000);
+    return minutes + (minutes === 1 ? " minute ago" : " minutes ago");
+  } else if (timeDifference < 86400000) { // Less than a day (24 hours)
+    const hours = Math.floor(timeDifference / 3600000);
+    return hours + (hours === 1 ? " hour ago" : " hours ago");
+  } else if (timeDifference < 2592000000) { // Less than a month (30 days)
+    const days = Math.floor(timeDifference / 86400000);
+    return days + (days === 1 ? " day ago" : " days ago");
+  } else { // More than a month
+    const months = Math.floor(timeDifference / 2592000000);
+    return months + (months === 1 ? " month ago" : " months ago");
+  }
+}
+
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-    res.render('search', { loggedIn: req.session.user ? true : false });
+router.get('/', async function(req, res, next) {
+    const items = await Item.findAll();
+
+    if(req.query.msg){
+        res.locals.msg = req.query.msg
+    }
+
+    res.locals.product = req.query.product
+    res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/menswear', async function(req, res, next) {
+  const items = await Item.findItemsByCategory("Menswear");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/menswear/tops', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Menswear", "Tops");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/menswear/bottoms', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Menswear", "Bottoms");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/menswear/outerwear', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Menswear", "Outerwear");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/menswear/footwear', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Menswear", "Footwear");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/menswear/accessories', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Menswear", "Accessories");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/womenswear', async function(req, res, next) {
+  const items = await Item.findItemsByCategory("Womenswear");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/womenswear/tops', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Womenswear", "Tops");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/womenswear/bottoms', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Womenswear", "Bottoms");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/womenswear/outerwear', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Womenswear", "Outerwear");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/womenswear/footwear', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Womenswear", "Footwear");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/womenswear/accessories', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Womenswear", "Accessories");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/womenswear/bags&luggage', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Womenswear", "Bags & Luggage");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/sneakers', async function(req, res, next) {
+  const items = await Item.findItemsByCategorySubcategory("Menswear", "Footwear");
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/designer/:designer', async function(req, res, next) {
+  let designer = req.params.designer;
+  designer = designer.replace(/_/g, ' ');
+  const items = await Item.findItemsByDesigner(designer);
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+});
+
+/* GET users listing. */
+router.get('/staffpicks', async function(req, res, next) {
+  const staffpicks = await Staffpick.findAll();
+  const itemids = staffpicks.map(staffpick => staffpick.itemid);
+  console.log(itemids)
+  const items = await Item.findAll({
+      where: {
+          itemid: itemids
+      }
+  });
+
+  if(req.query.msg){
+      res.locals.msg = req.query.msg
+  }
+
+  res.locals.product = req.query.product
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
 });
 
 router.post('/login', async function(req, res, next) {
@@ -22,11 +262,10 @@ router.post('/login', async function(req, res, next) {
       req.session.destroy()
       res.redirect("/search/?msg=logout")
     }else {
-      res.redirect("/search")
+      res.redirect("/search/")
     }
     
   })
-
   router.post('/signup', async function(req, res, next) {
     try {
       console.log(req.body.signupfirstname+"-"+req.body.signuplastname+"-"+req.body.signupemail+"-"+req.body.signuppassword);

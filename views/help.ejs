@@ -26,7 +26,7 @@
     <!-- Include the menubar -->
     <% include menubar.ejs %>
     <center>
-    <form class="form" method="GET" action="result.html" onsubmit="return validateEmail();">
+    <form method="POST" action="/help/create">
         <fieldset>
           <legend>Submit Request</legend>
           <div id="liveAlertPlaceholder"></div>
@@ -43,41 +43,31 @@
           <div>
             <label for="Request">Request</label>
             <p></p>
-            <textarea rows="5" cols="80" id="TITLE"></textarea>
+            <textarea rows="5" cols="80" id="request" name="request"></textarea>
           </div>
           <button type="submit">Submit</button>
         </fieldset>
       </form>
+
+      <% if (locals.msg) {%>
+        <% if (msg === "success") { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Sent!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } else { %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Form is not complete or email is invalid!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% }%>
+    <% }%>
+
       <div style="height: 297px;"></div>
 
     </center>
     
-      <footer>
-        <div class = "footerContainer">
-            <div class = "container">
-                <div class = "row justify-content-center">
-                    <div class = "col-md-2 ht50">
-                        <p class = "website-name">Grailed</p>
-                    </div>
-                    <div class = "col-md-10 ht50" style="max-width: 800px; padding-top: 10px;">              
-                        <ul class = "list-unstyled links">
-                            <a href="help.html" class = "links">CONTACT US</a>
-                            <a href="about.html" class = "links">ABOUT</a>
-                        </ul>
-                        <div class="socialIcons">
-                            <a href="https://twitter.com/grailed"><i class = "fa-brands fa-twitter"></i></a>
-                            <a href="https://www.facebook.com/grailed"><i class = "fa-brands fa-facebook"></i></a>
-                            <a href="https://www.instagram.com/grailed"><i class = "fa-brands fa-instagram"></i></a>
-                            <a href="https://www.youtube.com/channel/UCrcycxtz_yoAfar-qGPMJkA"><i class = "fa-brands fa-youtube"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class = "footerBottom">
-            <p class = "copywright">© 2024  Grailed</p>
-        </div>
-    </footer>
+    <% include footer.ejs %>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

@@ -4,25 +4,25 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.render('sneakers', { loggedIn: req.session.user ? true : false });
+    res.render('sell', { loggedIn: req.session.user ? true : false });
 });
 
 router.post('/login', async function(req, res, next) {
     const user = await User.findUser(req.body.loginemail, req.body.loginpassword)
     if(user!== null){
       req.session.user = user
-      res.redirect("/sneakers/?loggedIn=true")
+      res.redirect("/search/?loggedIn=true")
     }else{
-      res.redirect("/sneakers/?msg=fail")
+      res.redirect("/search/?msg=fail")
     }
   });
   
   router.get('/logout', function(req,res, next){
     if(req.session.user){
       req.session.destroy()
-      res.redirect("/sneakers/?msg=logout")
+      res.redirect("/search/?msg=logout")
     }else {
-      res.redirect("/sneakers")
+      res.redirect("/search")
     }
     
   })
@@ -42,10 +42,10 @@ router.post('/login', async function(req, res, next) {
       req.session.user = user;
       
       // Redirect to the desired page after successful signup
-      res.redirect('/sneakers/?signup=true');
+      res.redirect('/search/?signup=true');
     } catch (error) {
       console.log(error)
-      res.redirect('/sneakers/?msg=fail');
+      res.redirect('/search/?msg=fail');
     }
   });
 module.exports = router;

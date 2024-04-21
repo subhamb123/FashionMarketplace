@@ -16,14 +16,29 @@ class Item extends Model {
         }
     }
 
-    static async findItemsByStyle(style) {
+    static async findItemsByDesigner(designer) {
         try {
-            const itemsByStyle = await Item.findAll({
+            const itemsByDesigner = await Item.findAll({
                 where: {
-                    style: style
+                    designer: designer
                 }
             });
-            return itemsByStyle;
+            return itemsByDesigner;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    }
+
+    static async findItemsByCategorySubcategory(category, subcategory) {
+        try {
+            const itemsByCategory = await Item.findAll({
+                where: {
+                    category: category,
+                    subcategory: subcategory
+                }
+            });
+            return itemsByCategory;
         } catch (error) {
             console.log(error);
             return null;
@@ -33,37 +48,43 @@ class Item extends Model {
 
 Item.init({
     itemid: {
-      type: DataTypes.STRING,
-      primaryKey: true,
-      allowNull: false
+        type: DataTypes.STRING,
+        primaryKey: true,
+        allowNull: false
     },
     category: {
-      type: DataTypes.STRING,
-      allowNull: false
+        type: DataTypes.STRING,
+        allowNull: false
     },
     subcategory: {
-      type: DataTypes.STRING,
-      allowNull: false
+        type: DataTypes.STRING,
+        allowNull: false
     },
     price: {
-      type: DataTypes.REAL,
-      allowNull: false
+        type: DataTypes.REAL,
+        allowNull: false
     },
     designer: {
-      type: DataTypes.STRING,
-      allowNull: false
+        type: DataTypes.STRING,
+        allowNull: false
     },
     title: {
-      type: DataTypes.STRING,
-      allowNull: false
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    style: {
-      type: DataTypes.STRING,
-      allowNull: false
+    size: {
+        type: DataTypes.STRING, // Assuming size is a string, adjust if necessary
+        allowNull: false
+    },
+    timestamp: {
+        type: DataTypes.DATE, // Assuming timestamp is a Date, adjust if necessary
+        allowNull: false
     }
   }, {
-    sequelize, 
-    modelName: 'Item'
+    sequelize,
+    modelName: 'Item',
+    tableName: 'ITEMS',
+    timestamps: false
   });
-
-module.exports = Course
+  
+module.exports = Item
