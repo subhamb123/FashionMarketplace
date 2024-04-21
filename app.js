@@ -8,7 +8,6 @@ const sequelize = require('./db')
 const User = require('./models/User')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var searchRouter = require('./routes/search');
 var helpRouter = require('./routes/help');
 var aboutRouter = require('./routes/about');
