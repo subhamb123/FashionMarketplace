@@ -45,10 +45,18 @@ class Item extends Model {
         }
     }
 
-    static async getMaxItemId() {
+    static async getNewItemId() {
         try {
-            const result = await Item.max('itemid');
-            return result;
+            const maxItemId = await Item.max('itemid');
+            if (maxItemId === null) {
+                // If there are no existing items, start with 1
+                return '001';
+            } else {
+                // Increment the max item id by 1
+                let nextItemId = parseInt(maxItemId) + 1;
+                // Pad the number with leading zeros if necessary
+                return nextItemId.toString().padStart(3, '0');
+            }
         } catch (error) {
             console.error('Error retrieving max itemid:', error);
             throw error;
@@ -82,6 +90,10 @@ Item.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    style: {
+        type: DataTypes.STRING, // Assuming style is a string, adjust if necessary
+        allowNull: false
+    },
     size: {
         type: DataTypes.STRING, // Assuming size is a string, adjust if necessary
         allowNull: false
@@ -90,11 +102,11 @@ Item.init({
         type: DataTypes.DATE, // Assuming timestamp is a Date, adjust if necessary
         allowNull: false
     }
-  }, {
+}, {
     sequelize,
     modelName: 'Item',
     tableName: 'ITEMS',
     timestamps: false
-  });
+});
   
 module.exports = Item

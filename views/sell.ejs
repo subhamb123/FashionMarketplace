@@ -25,9 +25,65 @@
 
     <!-- Include the menubar -->
     <% include menubar.ejs %>
-    <p class = "subtitle">Sell</p>
-    <div style="height: 592px;"></div>
     
+    <div class="container" style="padding-top: 40px;">
+      <div class="listing-form" style="width: 800px; margin: 0 auto;">
+          <form action="/sell/new-listing" method="POST" onsubmit="return validateNewItem(event)">
+              <div class="mb-3">
+                  <h2>Add a new listing</h2>
+                  <label for="itemName" class="form-label">Item Name</label>
+                  <input type="text" class="form-control" id="title" name="title" required>
+              </div>
+              <div class="mb-3">
+                  <label for="designer" class="form-label">Designer</label>
+                  <input type="text" class="form-control" id="designer" name="designer" required>
+              </div>
+              <div class="mb-3">
+                  <label for="category" class="form-label">Category</label>
+                  <select class="form-select" id="category" name="category" required>
+                      <option value="">Select Category</option>
+                      <option value="Menswear">Menswear</option>
+                      <option value="Womenswear">Womenswear</option>
+                  </select>
+              </div>
+              <div class="mb-3">
+                  <label for="subcategory" class="form-label">Subcategory</label>
+                  <select class="form-select" id="subcategory" name="subcategory" required onchange="updateSizeOptions()">
+                      <option value="">Select Subcategory</option>
+                      <option value="Tops">Tops</option>
+                      <option value="Bottoms">Bottoms</option>
+                      <option value="Outerwear">Outerwear</option>
+                      <option value="Footwear">Footwear</option>
+                      <option value="Accessories">Accessories</option>
+                  </select>
+              </div>
+              <div class="mb-3">
+                <label for="style" class="form-label">Style</label>
+                <select class="form-select" id="style" name="style" required>
+                    <option value="">Select Style</option>
+                    <option value="Streetwear">Streetwear</option>
+                    <option value="Luxury">Luxury</option>
+                    <option value="Classic">Classic</option>
+                    <option value="Elegant">Elegant</option>
+                </select>
+            </div>
+              <div class="mb-3">
+                  <label for="size" class="form-label">Size</label>
+                  <select class="form-select" id="size" name="size" required>
+                      <option value="">Select Size</option>
+                  </select>
+              </div>
+              <div class="mb-3">
+                  <label for="price" class="form-label">Price</label>
+                  <input type="number" class="form-control" id="price" name="price" required>
+              </div>
+              <button type="submit" class="btn btn-primary signup">Submit</button>
+          </form>
+      </div>
+  </div>
+    <div style="height: 700px;"> </div>
+
+    <!-- Include the menubar -->
     <% include footer.ejs %>
 
     <script

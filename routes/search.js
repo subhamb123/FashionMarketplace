@@ -247,25 +247,29 @@ router.get('/staffpicks', async function(req, res, next) {
   res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
 });
 
-router.post('/login', async function(req, res, next) {
-    const user = await User.findUser(req.body.loginemail, req.body.loginpassword)
-    if(user!== null){
-      req.session.user = user
-      res.redirect("/search/?loggedIn=true")
-    }else{
-      res.redirect("/search/?msg=fail")
-    }
-  });
+router.post('*/login', async function(req, res, next) {
+  const user = await User.findUser(req.body.loginemail, req.body.loginpassword);
+  if (user !== null) {
+      req.session.user = user;
+      const redirectUrl = "/search" + req.params[0] + "?loggedIn=true";
+      res.redirect(redirectUrl);
+  } else {
+      res.redirect("/?msg=fail");
+  }
+});
   
-  router.get('/logout', function(req,res, next){
+  router.get('*/logout', function(req,res, next){
     if(req.session.user){
       req.session.destroy()
-      res.redirect("/search/?msg=logout")
+      const redirectUrl = "/search" + req.params[0] + "?msg=logout";
+      res.redirect(redirectUrl);
     }else {
       res.redirect("/search/")
     }
     
-  })
+  });
+
+
   router.post('/signup', async function(req, res, next) {
     try {
       console.log(req.body.signupfirstname+"-"+req.body.signuplastname+"-"+req.body.signupemail+"-"+req.body.signuppassword);

@@ -1,10 +1,29 @@
 var express = require('express');
 const User = require('../models/User');
+const Item = require('../models/Item')
 var router = express.Router();
 
-/* GET users listing. */
+/* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('sell', { loggedIn: req.session.user ? true : false });
+  res.render('sell', { loggedIn: req.session.user ? true : false });
+});
+
+/* GET users listing. */
+router.post('/new-listing', async function(req, res, next) {
+    const id = await Item.getNewItemId()
+    console.log(id)
+    const item = await Item.create({
+      itemid: id,
+      category: req.body.category,
+      subcategory: req.body.subcategory,
+      price: req.body.price,
+      designer: req.body.designer,
+      title: req.body.title,
+      size: req.body.size,
+      style: req.body.style,
+      timestamp: Date.now()
+    })
+    res.redirect(`/item/${id}`);
 });
 
 router.post('/login', async function(req, res, next) {
