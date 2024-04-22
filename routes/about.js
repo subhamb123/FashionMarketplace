@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.render('about', { loggedIn: req.session.user ? true : false });
+    res.render('about', { loggedIn: req.session.user ? true : false, loggedInUser: req.session.user });
 });
 
 router.post('/login', async function(req, res, next) {

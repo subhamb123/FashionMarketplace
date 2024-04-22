@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.render('collections', { loggedIn: req.session.user ? true : false });
+    res.render('collections', { loggedIn: req.session.user ? true : false , loggedInUser: req.session.user});
 });
 
 router.post('/login', async function(req, res, next) {
@@ -29,7 +29,7 @@ router.post('/login', async function(req, res, next) {
 
   router.post('/signup', async function(req, res, next) {
     try {
-      console.log(req.body.signupfirstname+"-"+req.body.signuplastname+"-"+req.body.signupemail+"-"+req.body.signuppassword);
+      console.log(req.body.signupfirstname + "-" + req.body.signuplastname + "-" + req.body.signupemail + "-" + req.body.signuppassword);
       const user = await User.create({
         firstname: req.body.signupfirstname,
         lastname: req.body.signuplastname,
@@ -38,15 +38,12 @@ router.post('/login', async function(req, res, next) {
         user_type: 'user'
       });
   
-      // Log in the user by setting the session
       req.session.user = user;
       
-      // Redirect to the desired page after successful signup
       res.redirect('/collections/?signup=true');
     } catch (error) {
       console.log(error)
       res.redirect('/collections/?msg=fail');
     }
   });
-
 module.exports = router;

@@ -269,7 +269,7 @@ router.post('*/login', async function(req, res, next) {
 
   router.post('*/signup', async function(req, res, next) {
     try {
-      console.log(req.body.signupfirstname+"-"+req.body.signuplastname+"-"+req.body.signupemail+"-"+req.body.signuppassword);
+      console.log(req.body.signupfirstname + "-" + req.body.signuplastname + "-" + req.body.signupemail + "-" + req.body.signuppassword);
       const user = await User.create({
         firstname: req.body.signupfirstname,
         lastname: req.body.signuplastname,
@@ -278,13 +278,11 @@ router.post('*/login', async function(req, res, next) {
         user_type: 'user'
       });
   
-      // Log in the user by setting the session
       req.session.user = user;
       
-      const redirectUrl = "/search" + req.params[0] + "?msg=logout";
-
-      // Redirect to the desired page after successful signup
-      res.redirect(redirectUrl);
+      const redirectUrl = "/search" + req.params[0] + "?loggedIn=true";
+      console.log(redirectUrl)
+      res.redirect('/search');
     } catch (error) {
       console.log(error)
       res.redirect('/search/?msg=fail');

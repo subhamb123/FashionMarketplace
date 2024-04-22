@@ -24,54 +24,8 @@
     <!-- Include the menubar -->
     <% include menubar.ejs %>
     
-    <div class="grid">
-        <div class="sidebar">
-            <form>
-                <fieldset>
-                  <% include filter.ejs %>
-                </fieldset>
-            </form>
-        </div>
-
-    <div class="table-container">
-        <% if (items.length === 0) { %>
-            <p>No items found.</p>
-            <div style="height: 1300px;"></div>
-        <% } else { %>
-            <table class="table">
-                <tbody>
-                    <% for (let i = 0; i < Math.ceil(items.length / 4) * 4; i += 4) { %>
-                        <tr>
-                            <% for (let j = i; j < i + 4; j++) { %>
-                                <% if (items[j]) { %>
-                                    <td>
-                                        <a href="/item/<%= items[j].itemid %>" class="item-link">
-                                            <div class="item-box">
-                                                <img src="/images/<%= items[j].itemid %>.jpg" class="item-image">
-                                                <div class="timestamp"><%= getTimeAgo(items[j].timestamp) %></div>
-                                                <div class="separator"></div>
-                                                <div class="designer-size">
-                                                    <%= items[j].designer %>
-                                                    <span class="size"><%= items[j].size === 'One Size' ? 'OS' : items[j].size %></span>
-                                                </div>
-                                                <div class="title"><%= items[j].title %></div>
-                                                <div class="price">$<%= items[j].price %></div>
-                                            </div>
-                                        </a>
-                                    </td>
-                                <% } else { %>
-                                    <td></td>
-                                <% } %>
-                            <% } %>
-                        </tr>
-                    <% } %>
-                </tbody>
-            </table>
-        <% } %>
-    </div>
-    
-    
-    </div>
+    <!-- Include the items -->
+    <% include items.ejs %>
 
     <div style="height: 300px;"></div>
     <!-- Include the footer -->

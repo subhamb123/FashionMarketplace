@@ -29,19 +29,21 @@ router.get('/logout', function(req,res, next){
 
 router.post('/signup', async function(req, res, next) {
   try {
-    console.log(req.body.signupfirstname+"-"+req.body.signuplastname+"-"+req.body.signupemail+"-"+req.body.signuppassword);
+    const { signupfirstname, signuplastname, signupemail, signuppassword } = req.body;
+
+    const username = signupemail.split('@')[0];
+
     const user = await User.create({
-      firstname: req.body.signupfirstname,
-      lastname: req.body.signuplastname,
-      email: req.body.signupemail,
-      password: req.body.signuppassword,
+      firstname: signupfirstname,
+      lastname: signuplastname,
+      email: signupemail,
+      password: signuppassword,
+      username: username,
       user_type: 'user'
     });
 
-    // Log in the user by setting the session
     req.session.user = user;
     
-    // Redirect to the desired page after successful signup
     res.redirect('/?signup=true');
   } catch (error) {
     console.log(error)

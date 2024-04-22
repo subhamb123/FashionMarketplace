@@ -21,6 +21,7 @@ var itemRouter = require('./routes/item');
 var collectionsRouter = require('./routes/collections');
 var sellRouter = require('./routes/sell')
 var profileRouter = require('./routes/profile');
+var favoritesRouter = require('./routes/favorites')
 const { profile } = require('console');
 var app = express();
 
@@ -56,6 +57,7 @@ app.use('/item', itemRouter);
 app.use('/collections', collectionsRouter);
 app.use('/sell', sellRouter);
 app.use('/route', profileRouter);
+app.use('/favorites', favoritesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

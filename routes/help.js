@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     if(req.query.msg){
       res.locals.msg = req.query.msg
     }
-    res.render('help', { loggedIn: req.session.user ? true : false });
+    res.render('help', { loggedIn: req.session.user ? true : false, loggedInUser: req.session.user });
 });
 
 router.post('/login', async function(req, res, next) {

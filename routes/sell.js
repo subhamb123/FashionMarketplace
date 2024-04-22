@@ -16,7 +16,7 @@ router.use(sessionChecker)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('sell', { loggedIn: req.session.user ? true : false });
+  res.render('sell', { loggedIn: req.session.user ? true : false, loggedInUser: req.session.user});
 });
 
 /* GET users listing. */
@@ -32,6 +32,7 @@ router.post('/new-listing', async function(req, res, next) {
       title: req.body.title,
       size: req.body.size,
       style: req.body.style,
+      seller: req.session.user.email,
       timestamp: Date.now()
     })
     res.redirect(`/item/${id}`);
