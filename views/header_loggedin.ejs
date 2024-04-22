@@ -44,7 +44,7 @@
                         <img src="/images/profile-empty.jpg" style="height: 45px; width: 45px; margin-top: -11px;">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                        <li><a class="dropdown-item" href="/profile/<%= loggedInUser.username %>">Profile</a></li>
                         <li><a class="dropdown-item" href="/settings">Settings</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li id="logoutLink"><a class="dropdown-item" href="#">Logout</a></li>

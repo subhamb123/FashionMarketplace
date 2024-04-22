@@ -5,31 +5,28 @@ const Staffpick = require('../models/Staffpick')
 var router = express.Router();
 
 function getTimeAgo(timestamp) {
-  // Parse the timestamp string into a Date object
+
   const date = new Date(timestamp);
 
-  // Get the current time in milliseconds
   const currentTime = Date.now();
 
-  // Calculate the time difference
   const timeDifference = currentTime - date.getTime();
 
-  // Perform the time ago calculation based on the time difference
-  if (timeDifference < 1000) { // Less than a second
+  if (timeDifference < 1000) { 
     return "just now";
-  } else if (timeDifference < 60000) { // Less than a minute (60 seconds)
+  } else if (timeDifference < 60000) { 
     const seconds = Math.floor(timeDifference / 1000);
     return seconds + (seconds === 1 ? " second ago" : " seconds ago");
-  } else if (timeDifference < 3600000) { // Less than an hour (60 minutes)
+  } else if (timeDifference < 3600000) { 
     const minutes = Math.floor(timeDifference / 60000);
     return minutes + (minutes === 1 ? " minute ago" : " minutes ago");
-  } else if (timeDifference < 86400000) { // Less than a day (24 hours)
+  } else if (timeDifference < 86400000) { 
     const hours = Math.floor(timeDifference / 3600000);
     return hours + (hours === 1 ? " hour ago" : " hours ago");
-  } else if (timeDifference < 2592000000) { // Less than a month (30 days)
+  } else if (timeDifference < 2592000000) { 
     const days = Math.floor(timeDifference / 86400000);
     return days + (days === 1 ? " day ago" : " days ago");
-  } else { // More than a month
+  } else {
     const months = Math.floor(timeDifference / 2592000000);
     return months + (months === 1 ? " month ago" : " months ago");
   }
@@ -44,7 +41,7 @@ router.get('/', async function(req, res, next) {
     }
 
     res.locals.product = req.query.product
-    res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+    res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -56,7 +53,7 @@ router.get('/menswear', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -68,7 +65,7 @@ router.get('/menswear/tops', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -80,7 +77,7 @@ router.get('/menswear/bottoms', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -92,7 +89,7 @@ router.get('/menswear/outerwear', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -104,7 +101,7 @@ router.get('/menswear/footwear', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -116,7 +113,7 @@ router.get('/menswear/accessories', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -128,7 +125,7 @@ router.get('/womenswear', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -140,7 +137,7 @@ router.get('/womenswear/tops', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -152,7 +149,7 @@ router.get('/womenswear/bottoms', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -164,7 +161,7 @@ router.get('/womenswear/outerwear', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -175,7 +172,7 @@ router.get('/womenswear/footwear', async function(req, res, next) {
       res.locals.msg = req.query.msg
   }
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -187,7 +184,7 @@ router.get('/womenswear/accessories', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -199,7 +196,7 @@ router.get('/womenswear/bags&luggage', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -211,7 +208,7 @@ router.get('/sneakers', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -225,7 +222,7 @@ router.get('/designer/:designer', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 /* GET users listing. */
@@ -244,7 +241,7 @@ router.get('/staffpicks', async function(req, res, next) {
   }
 
   res.locals.product = req.query.product
-  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo });
+  res.render('search', { loggedIn: req.session.user ? true : false, items, getTimeAgo, loggedInUser: req.session.user });
 });
 
 router.post('*/login', async function(req, res, next) {
@@ -254,7 +251,7 @@ router.post('*/login', async function(req, res, next) {
       const redirectUrl = "/search" + req.params[0] + "?loggedIn=true";
       res.redirect(redirectUrl);
   } else {
-      res.redirect("/?msg=fail");
+      res.redirect("/search" + req.params[0] + "/?msg=fail");
   }
 });
   
@@ -264,13 +261,13 @@ router.post('*/login', async function(req, res, next) {
       const redirectUrl = "/search" + req.params[0] + "?msg=logout";
       res.redirect(redirectUrl);
     }else {
-      res.redirect("/search/")
+      res.redirect("/search" + req.params[0])
     }
     
   });
 
 
-  router.post('/signup', async function(req, res, next) {
+  router.post('*/signup', async function(req, res, next) {
     try {
       console.log(req.body.signupfirstname+"-"+req.body.signuplastname+"-"+req.body.signupemail+"-"+req.body.signuppassword);
       const user = await User.create({
@@ -284,8 +281,10 @@ router.post('*/login', async function(req, res, next) {
       // Log in the user by setting the session
       req.session.user = user;
       
+      const redirectUrl = "/search" + req.params[0] + "?msg=logout";
+
       // Redirect to the desired page after successful signup
-      res.redirect('/search/?signup=true');
+      res.redirect(redirectUrl);
     } catch (error) {
       console.log(error)
       res.redirect('/search/?msg=fail');

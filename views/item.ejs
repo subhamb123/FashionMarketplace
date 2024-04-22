@@ -23,29 +23,33 @@
     <% include menubar.ejs %>
     
     <!-- Item details section -->
-    <center>
-    <div class="container", style="height: 1350px; padding-top: 80px;">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="/images/<%= item.itemid %>.jpg" alt="Item Image" class="item-image">
-            </div>
-            <div class="col-md-6">
-                <div class="item-details">
-                    <div class="details">
-                        <div class="designer"><%= item.designer %></div>
-                        <div class="title"><%= item.title %></div>
-                        <div class="size">Size: <%= item.size %></div>
-                        <div class="price">$<%= item.price %></div>
-                        <div style="height: 20px;"></div>
-                        <button type="button" class="btn btn-dark signup">
-                            PURCHASE
-                        </button>
-                    </div>
+        <div class="container" style="height: 1350px; padding-top: 80px;">
+            <div class="row">
+                <div class="col-md-6">
+                        <img src="/images/<%= item.itemid %>.jpg" alt="Item Image" class="item-image">
+                </div>
+                <div class="col-md-6">
+                        <div class="item-details">
+                            <div class="details">
+                                <div class="designer"><%= item.designer %></div>
+                                <div class="title"><%= item.title %></div>
+                                <div class="size">Size: <%= item.size %></div>
+                                <div class="price">$<%= item.price %></div>
+                                <div style="height: 20px;"></div>
+                                <button type="button" class="btn btn-dark signup">
+                                    PURCHASE
+                                </button>
+                            </div>
+                        </div>
+                        <div class="seller-details" style="padding-top: 200px;">
+                            <div>Seller: <a href="/profile/<%= seller.username %>" style="text-decoration: none; color: inherit;"><%= seller.username %></a></div>
+                            <div>Email: <%= seller.email %></div>
+                        </div>
                 </div>
             </div>
         </div>
-    </div>
-    </center>
+    
+    
 
     <!-- Include the footer -->
     <% include footer.ejs %>

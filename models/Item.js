@@ -91,15 +91,19 @@ Item.init({
         allowNull: false
     },
     style: {
-        type: DataTypes.STRING, // Assuming style is a string, adjust if necessary
+        type: DataTypes.STRING,
         allowNull: false
     },
     size: {
-        type: DataTypes.STRING, // Assuming size is a string, adjust if necessary
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    seller: {
+        type: DataTypes.STRING, 
         allowNull: false
     },
     timestamp: {
-        type: DataTypes.DATE, // Assuming timestamp is a Date, adjust if necessary
+        type: DataTypes.DATE,
         allowNull: false
     }
 }, {
@@ -108,5 +112,4 @@ Item.init({
     tableName: 'ITEMS',
     timestamps: false
 });
-  
 module.exports = Item

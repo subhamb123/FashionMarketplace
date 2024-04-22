@@ -20,6 +20,8 @@ var settingsRouter = require('./routes/settings');
 var itemRouter = require('./routes/item');
 var collectionsRouter = require('./routes/collections');
 var sellRouter = require('./routes/sell')
+var profileRouter = require('./routes/profile');
+const { profile } = require('console');
 var app = express();
 
 // view engine setup
@@ -50,9 +52,10 @@ app.use('/read', readRouter);
 app.use('/checkout', checkoutRouter);
 app.use('/profile', profileRouter);
 app.use('/settings', settingsRouter);
-app.use('/item', itemRouter)
-app.use('/collections', collectionsRouter)
-app.use('/sell', sellRouter)
+app.use('/item', itemRouter);
+app.use('/collections', collectionsRouter);
+app.use('/sell', sellRouter);
+app.use('/route', profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

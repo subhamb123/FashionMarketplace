@@ -40,37 +40,42 @@ router.get('/:id', async function(req, res, next) {
     
     const item = await Item.findByPk(itemId);
 
-    if (item !== null){
-        res.render('item', {item, loggedIn: req.session.user ? true : false });
+    const seller = await User.findByPk(item.seller)
+
+    if (item !== null && seller !== null){
+        res.render('item', {item, seller, loggedIn: req.session.user ? true : false, loggedInUser: req.session.user });
     }
     else
     {
-        redirect("/")
+        redirect("/search")
     }
 
 });
 
-router.post('/login', async function(req, res, next) {
-    const user = await User.findUser(req.body.loginemail, req.body.loginpassword)
-    if(user!== null){
-      req.session.user = user
-      res.redirect("/item/?loggedIn=true")
-    }else{
-      res.redirect("/item/?msg=fail")
-    }
-  });
+router.post('*/login', async function(req, res, next) {
+  const user = await User.findUser(req.body.loginemail, req.body.loginpassword);
+  if (user !== null) {
+      req.session.user = user;
+      const redirectUrl = "/item" + req.params[0] + "?loggedIn=true";
+      res.redirect(redirectUrl);
+  } else {
+      res.redirect("/?msg=fail");
+  }
+});
   
-  router.get('/logout', function(req,res, next){
+  router.get('*/logout', function(req,res, next){
     if(req.session.user){
       req.session.destroy()
-      res.redirect("/item/?msg=logout")
+      const redirectUrl = "/item" + req.params[0] + "?msg=logout";
+      res.redirect(redirectUrl);
     }else {
-      res.redirect("/item")
+      res.redirect("/item" + req.params[0])
     }
     
-  })
+  });
 
-  router.post('/signup', async function(req, res, next) {
+
+  router.post('*/signup', async function(req, res, next) {
     try {
       console.log(req.body.signupfirstname+"-"+req.body.signuplastname+"-"+req.body.signupemail+"-"+req.body.signuppassword);
       const user = await User.create({
@@ -84,11 +89,13 @@ router.post('/login', async function(req, res, next) {
       // Log in the user by setting the session
       req.session.user = user;
       
+      const redirectUrl = "/item" + req.params[0] + "?msg=logout";
+
       // Redirect to the desired page after successful signup
-      res.redirect('/item/?signup=true');
+      res.redirect(redirectUrl);
     } catch (error) {
       console.log(error)
-      res.redirect('/item/?msg=fail');
+      res.redirect("/item" + req.params[0]);
     }
   });
 

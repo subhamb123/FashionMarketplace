@@ -37,6 +37,10 @@ User.init({
     type: DataTypes.STRING,
     allowNull: false
   },
+  username:{
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   user_type: {
     type: DataTypes.STRING,
     allowNull: false,
