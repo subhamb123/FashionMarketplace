@@ -1,0 +1,34 @@
+.item-details {
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+.item-details img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px;
+}
+.item-details .details {
+    flex: 1;
+}
+.item-image{
+    max-width: 600px;
+    max-height: 1000px;
+    object-fit: contain;
+}
+
+.designer-size {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 16px;
+    color: #333;
+}

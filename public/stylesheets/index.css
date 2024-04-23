@@ -81,6 +81,14 @@
     padding-right: 22px;
     padding-top: 5px;
     padding-bottom: 5px;
+    border-color: black;
+    background-color: white;
+    border-radius: 0;
+  }
+
+  .sell:hover{
+    color: black;
+    background-color: white;
   }
 
   .overlay-text .mainlinks{
@@ -366,3 +374,9 @@
   p a {
     color: black;
   }
+  
+  .subtitle2{
+    color: black;
+  }
+
+
